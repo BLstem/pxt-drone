@@ -38,25 +38,25 @@ namespace drone {
         direction = 0
     }
 
-    //%block="End the section"
+    //%block="END"
     export function end_section(): void{
         fly_flag = 0
         direction = 0
     }
 
-    //%"block="Take off"
+    //%block="Take off"
     export function take_off(): void{
         direction = 6
         took_off = true
     }
 
-    //%"block="Land"
+    //%block="Land"
     export function land(): void{
         direction = 7
         took_off = false
     }
 
-    //%"block="Action %action"
+    //%block="Action %action"
     export function Action(action: movement): void {
         switch (action) {
             case movement.up:
