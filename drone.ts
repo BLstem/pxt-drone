@@ -15,7 +15,7 @@ enum movement{
     stay
 }
 
-//% block="Drone" color=#2B4556 icon="\uf85f"
+//% block="Drone" color=#2B4556 icon=""
 namespace drone {
     //connect to the board
     serial.redirect(SerialPin.P0, SerialPin.P1, 115200)
@@ -32,31 +32,31 @@ namespace drone {
         command[2] = direction
     })
 
-    //%block="Be prepared"
+    //%block="Be prepared" weight=100
     export function prepared(): void{
         fly_flag = 1
         direction = 0
     }
 
-    //%block="END"
+    //%block="END" weight=99
     export function end_section(): void{
         fly_flag = 0
         direction = 0
     }
 
-    //%block="Take off"
+    //%block="Take off" weight=98
     export function take_off(): void{
         direction = 6
         took_off = true
     }
 
-    //%block="Land"
+    //%block="Land" weight=97
     export function land(): void{
         direction = 7
         took_off = false
     }
 
-    //%block="Action %action"
+    //%block="Action %action" weight=96
     export function Action(action: movement): void {
         switch (action) {
             case movement.up:
