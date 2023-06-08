@@ -15,7 +15,7 @@ enum movement{
     stay
 }
 
-//% block="Drone" color=#2B4556 icon="\uf1d8"
+//% block="Drone STEM@eClass" color=#2B4556 icon="\uf1d8"
 namespace drone {
     //connect to the board
     serial.redirect(SerialPin.P0, SerialPin.P1, 115200)
@@ -74,10 +74,12 @@ namespace drone {
             case movement.backward:
                 direction = 3
             case movement.stay:
-                take_off()
-                command[2] = direction
-                serial.writeNumbers(command)
-                direction = 9
+                if (took_off){
+                    take_off()
+                    command[2] = direction
+                    serial.writeNumbers(command)
+                    direction = 9
+                }
         }
     }
 }
