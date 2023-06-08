@@ -30,6 +30,8 @@ namespace drone {
     basic.forever(function() {
         command[1] = fly_flag
         command[2] = direction
+        serial.writeNumbers(command)
+        basic.pause(100)
     })
 
     //%block="Be prepared" weight=100
@@ -72,6 +74,9 @@ namespace drone {
             case movement.backward:
                 direction = 3
             case movement.stay:
+                take_off()
+                command[2] = direction
+                serial.writeNumbers(command)
                 direction = 9
         }
     }
