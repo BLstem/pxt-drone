@@ -15,7 +15,7 @@ enum movement{
     stay
 }
 
-//% block="Drone" color=#2B4556 icon="\uf533"
+//% block="Drone" color=#2B4556 icon="\uf072"
 namespace drone {
     //connect to the board
     serial.redirect(SerialPin.P0, SerialPin.P1, 115200)
