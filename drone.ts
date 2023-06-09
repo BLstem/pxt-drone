@@ -66,21 +66,27 @@ namespace drone {
                 case movement.up:
                     direction = 1
                     moving = true
+                    break
                 case movement.down:
                     direction = 0
                     moving = true
+                    break
                 case movement.right:
                     direction = 5
                     moving = true
+                    break
                 case movement.left:
                     direction = 4
                     moving = true
+                    break
                 case movement.forward:
                     direction = 2
                     moving = true
+                    break
                 case movement.backward:
                     direction = 3
                     moving = true
+                    break
                 case movement.stay:
                     if (moving){
                         direction = 6
@@ -89,6 +95,7 @@ namespace drone {
                         direction = 9
                         moving = false
                     }
+                    break
             }
         }
     }
