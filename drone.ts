@@ -23,6 +23,7 @@ namespace drone {
     //initialize commands
     let command: number[] = [170, 0, 0]
     let took_off: boolean = false
+    let moving: boolean = false
     let fly_flag: number = 0
     let direction: number = 0
 
@@ -60,26 +61,35 @@ namespace drone {
 
     //%block="Action %action" weight=96
     export function Action(action: movement): void {
-        switch (action) {
-            case movement.up:
-                direction = 1
-            case movement.down:
-                direction = 0
-            case movement.right:
-                direction = 5
-            case movement.left:
-                direction = 4
-            case movement.forward:
-                direction = 2
-            case movement.backward:
-                direction = 3
-            case movement.stay:
-                if (took_off){
-                    take_off()
-                    command[2] = direction
-                    serial.writeNumbers(command)
-                    direction = 9
-                }
+        if (took_off){
+            switch (action) {
+                case movement.up:
+                    direction = 1
+                    moving = true
+                case movement.down:
+                    direction = 0
+                    moving = true
+                case movement.right:
+                    direction = 5
+                    moving = true
+                case movement.left:
+                    direction = 4
+                    moving = true
+                case movement.forward:
+                    direction = 2
+                    moving = true
+                case movement.backward:
+                    direction = 3
+                    moving = true
+                case movement.stay:
+                    if (moving){
+                        direction = 6
+                        command[2] = direction
+                        serial.writeNumbers(command)
+                        direction = 9
+                        moving = false
+                    }
+            }
         }
     }
 }
