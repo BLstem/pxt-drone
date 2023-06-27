@@ -32,7 +32,7 @@ namespace drone {
         command[1] = fly_flag
         command[2] = direction
         serial.writeNumbers(command)
-        basic.pause(100)
+        basic.pause(10)
     })
 
     //%block="Be prepared" weight=100
