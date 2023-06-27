@@ -18,7 +18,7 @@ enum movement{
 //% block="Drone STEM@eClass" color=#2B4556 icon="\uf1d8"
 namespace drone {
     //connect to the board
-    serial.redirect(SerialPin.P1, SerialPin.P2, 115200)
+    serial.redirect(SerialPin.P2, SerialPin.P1, 115200)
 
     //initialize commands
     let command: number[] = [170, 0, 0]
