@@ -85,11 +85,11 @@ namespace drone {
                     moving = true
                     break
                 case movement.right:
-                    direction = "04"
+                    direction = "05"
                     moving = true
                     break
                 case movement.left:
-                    direction = "05"
+                    direction = "04"
                     moving = true
                     break
                 case movement.forward:
